@@ -12,7 +12,7 @@
   Colours are the app's own; fonts are self-hosted; the page makes no third-party requests.
 -->
 <title>Tile Bloom · Turn the tiles, let them bloom</title>
-<meta name="description" content="Tile Bloom is a calm rotation puzzle made from Vietnamese gạch bông cement tiles. One tap turns a tile; four matching corners make a flower bloom. 84 floors in seven rooms and a daily tile. Play Chapter I free in your browser.">
+<meta name="description" content="Tile Bloom is a calm rotation puzzle made from Vietnamese gạch bông cement tiles. Turn tiles, match corners, make flowers bloom. Play Chapter I free.">
 <link rel="canonical" href="https://nguyenvanlamm.github.io/tile-bloom-site/">
 <link rel="alternate" type="text/markdown" href="index.html.md">
 <link rel="describedby" href="llms.txt">
@@ -55,8 +55,8 @@
       "applicationCategory": "GameApplication",
       "applicationSubCategory": "Puzzle",
       "genre": "Puzzle",
-      "gamePlatform": ["iOS", "Android", "Web browser"],
-      "operatingSystem": "iOS 15.0 or later, Android, web browsers",
+      "gamePlatform": ["Web browser"],
+      "operatingSystem": "Web browsers",
       "playMode": "SinglePlayer",
       "inLanguage": "en",
       "image": "https://nguyenvanlamm.github.io/tile-bloom-site/assets/img/icon-512.png",
@@ -66,7 +66,7 @@
         "https://nguyenvanlamm.github.io/tile-bloom-site/assets/img/ui-levels-porch.webp",
         "https://nguyenvanlamm.github.io/tile-bloom-site/assets/img/ui-win-light.webp"
       ],
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "description": "Chapter I and the daily tile are free. One in-app purchase opens every chapter after the first." },
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "url": "https://nguyenvanlamm.github.io/tile-bloom-site/play/", "description": "Chapter I and the daily tile are free. One in-app purchase opens every chapter after the first." },
       "potentialAction": { "@type": "PlayAction", "target": "https://nguyenvanlamm.github.io/tile-bloom-site/play/" }
     }
   ]
@@ -312,7 +312,7 @@
   </div>
   <div class="neat inv" aria-hidden="true"></div>
 </footer>
-<script src="assets/js/tile-bloom-engine.js"></script>
-<script src="assets/js/home.js"></script>
+<script src="assets/js/tile-bloom-engine.js" defer></script>
+<script src="assets/js/home.js" defer></script>
 </body>
 </html>
