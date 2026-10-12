@@ -243,6 +243,10 @@
     drawFocus();
   });
   boardEl.addEventListener('blur', () => { boardEl.classList.remove('kb'); drawFocus(); });
+  // Tabbing in shows the gold tile ring at once (WCAG 2.4.7); a click focuses without it.
+  boardEl.addEventListener('focus', () => {
+    if (boardEl.matches(':focus-visible')) { boardEl.classList.add('kb'); drawFocus(); }
+  });
   boardEl.addEventListener('keydown', (e) => {
     const { rows, cols } = puzzle;
     let r = Math.floor(focusT / cols), c = focusT % cols, handled = true;
