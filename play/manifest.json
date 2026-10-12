@@ -1,0 +1,40 @@
+{
+    "name": "Tile Bloom — Turn the tiles, let them bloom",
+    "short_name": "Tile Bloom",
+    "start_url": ".",
+    "display": "standalone",
+    "background_color": "#F5EEE2",
+    "theme_color": "#24406B",
+    "description": "A tile-turning puzzle: match the four patterned corners so every flower blooms and the cement-tile floor is complete.",
+    "lang": "en",
+    "categories": [
+        "games",
+        "entertainment"
+    ],
+    "orientation": "any",
+    "prefer_related_applications": false,
+    "icons": [
+        {
+            "src": "icons/Icon-192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "icons/Icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        },
+        {
+            "src": "icons/Icon-maskable-192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "maskable"
+        },
+        {
+            "src": "icons/Icon-maskable-512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable"
+        }
+    ]
+}

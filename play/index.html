@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    If you are serving your web app in a path other than the root, change the
+    href value below to reflect the base path you are serving from.
+
+    The path provided below has to start and end with a slash "/" in order for
+    it to work correctly.
+
+    For more details:
+    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
+
+    This is a placeholder for base href that will be replaced by the value of
+    the `--base-href` argument provided to `flutter build`.
+  -->
+  <base href="/tile-bloom-site/play/">
+
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Tile Bloom — a tile-turning puzzle: match the four patterned corners so every flower blooms and the cement-tile floor is complete. 36 levels, a daily tile, plays offline.">
+  <meta name="theme-color" content="#24406B">
+
+  <!-- iOS meta tags & icons -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Tile Bloom">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png"/>
+
+  <title>Tile Bloom — Turn the tiles, let them bloom</title>
+  <link rel="manifest" href="manifest.json">
+
+  <style>
+    html, body { margin: 0; height: 100%; background: #F5EEE2; }
+    @media (prefers-color-scheme: dark) { html, body { background: #141A26; } }
+    #splash { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; }
+    #splash svg { width: 96px; height: 96px; animation: bloom 1.6s ease-in-out infinite; }
+    @keyframes bloom { 50% { transform: scale(0.92); opacity: 0.8; } }
+    @media (prefers-reduced-motion: reduce) { #splash svg { animation: none; } }
+  </style>
+</head>
+<body>
+  <!-- Shown until Flutter paints its first frame (same geometry as assets/logo/logo-mark.svg). -->
+  <div id="splash" aria-label="Tile Bloom is loading" role="img">
+    <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+      <path fill="#24406B" d="M7,2H25A5,5 0 0 1 30,7V25A5,5 0 0 1 25,30H7A5,5 0 0 1 2,25V7A5,5 0 0 1 7,2ZM39,2H57A5,5 0 0 1 62,7V25A5,5 0 0 1 57,30H39A5,5 0 0 1 34,25V7A5,5 0 0 1 39,2ZM7,34H25A5,5 0 0 1 30,39V57A5,5 0 0 1 25,62H7A5,5 0 0 1 2,57V39A5,5 0 0 1 7,34ZM39,34H57A5,5 0 0 1 62,39V57A5,5 0 0 1 57,62H39A5,5 0 0 1 34,57V39A5,5 0 0 1 39,34Z"/>
+      <g fill="#E0A93B">
+        <path transform="rotate(45 32 32)" d="M32,32C26,26.5 24.5,20 26.2,15.2C27.4,12 29.6,10.5 32,10.5C34.4,10.5 36.6,12 37.8,15.2C39.5,20 38,26.5 32,32Z"/>
+        <path transform="rotate(135 32 32)" d="M32,32C26,26.5 24.5,20 26.2,15.2C27.4,12 29.6,10.5 32,10.5C34.4,10.5 36.6,12 37.8,15.2C39.5,20 38,26.5 32,32Z"/>
+        <path transform="rotate(225 32 32)" d="M32,32C26,26.5 24.5,20 26.2,15.2C27.4,12 29.6,10.5 32,10.5C34.4,10.5 36.6,12 37.8,15.2C39.5,20 38,26.5 32,32Z"/>
+        <path transform="rotate(315 32 32)" d="M32,32C26,26.5 24.5,20 26.2,15.2C27.4,12 29.6,10.5 32,10.5C34.4,10.5 36.6,12 37.8,15.2C39.5,20 38,26.5 32,32Z"/>
+      </g>
+      <circle cx="32" cy="32" r="4.5" fill="#A8432C"/>
+    </svg>
+  </div>
+  <script>
+    window.addEventListener('flutter-first-frame', function () {
+      var splash = document.getElementById('splash');
+      if (splash) splash.remove();
+    });
+  </script>
+  <!--
+    You can customize the "flutter_bootstrap.js" script.
+    This is useful to provide a custom configuration to the Flutter loader
+    or to give the user feedback during the initialization process.
+
+    For more details:
+    * https://docs.flutter.dev/platform-integration/web/initialization
+  -->
+  <script src="flutter_bootstrap.js" async></script>
+</body>
+</html>

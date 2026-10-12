@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--
+  Tile Bloom landing page. Direction A, "the star atlas": web style #7 "Cosmic Retro-Futurism"
+  read as a 1930s cement-tile pattern catalogue crossed with a star atlas (numbered plates,
+  running heads, figure captions, neat lines). Chosen by the owner on 2026-10-12.
+  Form comes from the meeting point: grout lines become the atlas graticule, the quarter turn an
+  orbit, every bloom a charted star. Plate I is a real floor (assets/js/tile-bloom-engine.js).
+  Colours are the app's own; fonts are self-hosted; the page makes no third-party requests.
+-->
+<title>Tile Bloom · Turn the tiles, let them bloom</title>
+<meta name="description" content="Tile Bloom is a calm rotation puzzle made from Vietnamese gạch bông cement tiles. One tap turns a tile; four matching corners make a flower bloom. 84 floors in seven rooms and a daily tile. Play Chapter I free in your browser.">
+<link rel="canonical" href="https://nguyenvanlamm.github.io/tile-bloom-site/">
+<link rel="alternate" type="text/markdown" href="index.html.md">
+<link rel="describedby" href="llms.txt">
+<meta name="theme-color" content="#F3EADB">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Tile Bloom">
+<meta property="og:url" content="https://nguyenvanlamm.github.io/tile-bloom-site/">
+<meta property="og:title" content="Tile Bloom · Turn the tiles, let them bloom">
+<meta property="og:description" content="A calm rotation puzzle made from Vietnamese cement tiles. Play Chapter I and the daily tile free in your browser.">
+<meta property="og:image" content="https://nguyenvanlamm.github.io/tile-bloom-site/assets/img/share-card.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Tile Bloom: Turn the tiles, let them bloom. A floor of cream cement tiles with flowers blooming where the corners meet, set in a star-chart disc.">
+<meta name="twitter:card" content="summary_large_image">
+<!-- Once the app is live, add the Safari Smart App Banner:
+<meta name="apple-itunes-app" content="app-id=XXXXXXXXXX"> -->
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="preload" href="assets/fonts/Marcellus-Regular.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="stylesheet" href="assets/css/site.css">
+<script>document.documentElement.classList.add('js')</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://nguyenvanlamm.github.io/tile-bloom-site/#website",
+      "url": "https://nguyenvanlamm.github.io/tile-bloom-site/",
+      "name": "Tile Bloom",
+      "inLanguage": "en",
+      "about": { "@id": "https://nguyenvanlamm.github.io/tile-bloom-site/#game" }
+    },
+    {
+      "@type": ["VideoGame", "SoftwareApplication"],
+      "@id": "https://nguyenvanlamm.github.io/tile-bloom-site/#game",
+      "name": "Tile Bloom",
+      "url": "https://nguyenvanlamm.github.io/tile-bloom-site/",
+      "description": "A calm rotation puzzle made from Vietnamese gạch bông cement tiles. Tap a tile to turn it; when all the corners that meet at a point match, a flower blooms there. 84 levels in seven chapters and a daily tile. The app works offline, with no ads, no account and no tracking.",
+      "applicationCategory": "GameApplication",
+      "applicationSubCategory": "Puzzle",
+      "genre": "Puzzle",
+      "gamePlatform": ["iOS", "Android", "Web browser"],
+      "operatingSystem": "iOS 15.0 or later, Android, web browsers",
+      "playMode": "SinglePlayer",
+      "inLanguage": "en",
+      "image": "https://nguyenvanlamm.github.io/tile-bloom-site/assets/img/icon-512.png",
+      "screenshot": [
+        "https://nguyenvanlamm.github.io/tile-bloom-site/assets/img/ui-game-bloomed-dark.webp",
+        "https://nguyenvanlamm.github.io/tile-bloom-site/assets/img/ui-daily-light.webp",
+        "https://nguyenvanlamm.github.io/tile-bloom-site/assets/img/ui-levels-porch.webp",
+        "https://nguyenvanlamm.github.io/tile-bloom-site/assets/img/ui-win-light.webp"
+      ],
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "description": "Chapter I and the daily tile are free. One in-app purchase opens every chapter after the first." },
+      "potentialAction": { "@type": "PlayAction", "target": "https://nguyenvanlamm.github.io/tile-bloom-site/play/" }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<div class="neat" aria-hidden="true"></div>
+<header class="mast">
+  <div class="wrap mast-in">
+    <a class="brand" href="#top" aria-label="Tile Bloom, back to top"><img src="assets/img/logo-full.svg" alt="Tile Bloom" width="151" height="34"></a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#plays">How it plays</a>
+      <a href="#rooms">Rooms</a>
+      <a href="#daily">Daily</a>
+      <a href="#calm">Calm</a>
+      <a href="#screens">Screens</a>
+    </nav>
+    <a class="btn btn-blue btn-sm" href="play/">Play</a>
+  </div>
+</header>
+
+<main>
+<!-- ===================================================== PLATE I -->
+<section class="hero paper" id="top" aria-labelledby="h1">
+  <div class="wrap hero-grid">
+    <div class="hero-left">
+      <div class="hero-copy">
+        <p class="kicker">Plate I · A calm rotation puzzle</p>
+        <h1 id="h1"><span>Tile</span><span class="l2">Bloom</span></h1>
+        <p class="tagline">Turn the tiles · Let them bloom</p>
+        <p class="promise">A calm rotation puzzle made from Vietnamese <span class="vi"><span class="sr">gạch bông</span><span aria-hidden="true">g<span class="db">a</span>ch bông</span></span> cement tiles. One tap turns a tile; four matching corners make a flower bloom.</p>
+        <div class="cta-row">
+          <a class="btn btn-blue" href="play/">Play in your browser
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h16M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.7"/></svg></a>
+          <span class="cta-note">Chapter I and the daily tile are free. No ads, no account.</span>
+        </div>
+      </div>
+      <div class="stores-wrap">
+        <span class="cap">On phones and tablets</span>
+        <div class="stores">
+          <span class="badge"><span class="orb" aria-hidden="true"></span><span><small>Coming soon</small><b>App Store</b></span></span>
+          <span class="badge"><span class="orb" aria-hidden="true"></span><span><small>Coming soon</small><b>Google Play</b></span></span>
+        </div>
+        <p class="platforms">iPhone and iPad (iOS 15+), Android, and web browsers.</p>
+      </div>
+    </div>
+
+    <figure class="hero-plate">
+      <div class="sphere" id="sphere">
+        <svg class="sky" id="sky" viewBox="0 0 1000 1000" aria-hidden="true"></svg>
+        <div class="board" id="board" tabindex="0" role="application" aria-roledescription="puzzle floor"
+             aria-label="A playable floor. Tap a tile to turn it clockwise; long-press or right-click turns it back. With a keyboard: arrow keys pick a tile, Enter or Space turns it, Shift with Enter turns it back, Z undoes, H gives a hint."></div>
+      </div>
+      <figcaption class="plate-cap">
+        <dl class="readout">
+          <div class="fl"><dt>Floor</dt><dd id="r-level">Level 7 · 3×3</dd></div>
+          <div><dt>Moves</dt><dd><span id="r-moves">0</span><small>par <span id="r-par">15</span></small></dd></div>
+          <div><dt>Blooms</dt><dd><span id="r-bloom">0</span><small>/ <span id="r-total">12</span></small></dd></div>
+        </dl>
+        <div class="tools">
+          <button class="tool" id="t-undo" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5 4 10l5 5M4 10h10.5a5.5 5.5 0 0 1 0 11H10" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>Undo</button>
+          <button class="tool" id="t-hint" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l9 9-9 9-9-9z" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M12 9l3 3-3 3-3-3z" fill="currentColor"/></svg><span>Hint · <span id="hint-n">3</span></span></button>
+          <button class="tool" id="t-restart" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.34-5.66M20 4v5h-5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>Restart</button>
+          <button class="tool" id="t-prev" type="button" aria-label="Previous floor"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="1.7"/></svg></button>
+          <button class="tool next" id="t-next" type="button">Next floor<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="1.7"/></svg></button>
+        </div>
+        <p class="note" id="note"></p>
+        <p class="sr" id="live" aria-live="polite"></p>
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ===================================================== PLATE II -->
+<section class="sec night" id="plays" aria-labelledby="h-plays">
+  <div class="wrap runhead"><span>Tile Bloom</span><span class="mid hide-sm"></span><span>Plate II · How it plays</span></div>
+  <header class="sec-head">
+    <p class="plate-no">Plate II</p>
+    <h2 id="h-plays">Turn, match, bloom</h2>
+    <p class="lede">The whole rule in three motions. One tap turns a tile; four matching corners make a flower bloom.</p>
+  </header>
+  <ol class="figs">
+    <li class="fig rv" data-fig="1"><div class="fsv f1" id="fig1"></div>
+      <p class="cap">Fig. 1</p><h3>Turn</h3>
+      <p>Tap a tile to turn it 90° clockwise. Long-press or right-click turns it back.</p></li>
+    <li class="fig rv" data-fig="2"><div class="fsv f2" id="fig2"></div>
+      <p class="cap">Fig. 2</p><h3>Match</h3>
+      <p>Every corner holds a quarter of a flower. Where corners meet, all of them must match.</p></li>
+    <li class="fig rv" data-fig="3"><div class="fsv f3" id="fig3"></div>
+      <p class="cap">Fig. 3</p><h3>Bloom</h3>
+      <p>Then a flower blooms there. Bloom every meeting point to finish the floor; fewer moves earn more stars, three at or under par.</p></li>
+  </ol>
+
+  <div class="key rv">
+    <div class="key-in">
+      <div>
+        <span class="cap">Key to the plates</span>
+        <h3>Six motifs</h3>
+        <p>Each has its own colour and its own shape, so a match never depends on colour alone.</p>
+      </div>
+      <ul class="specimens" id="specimens"></ul>
+    </div>
+  </div>
+
+  <div class="instruments rv">
+    <ul class="inst-grid">
+      <li class="inst-head"><span class="cap">Instruments</span><h3>Tools of the floor</h3><p>Everything you need, nothing that rushes you.</p></li>
+      <li><h4><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5 4 10l5 5M4 10h10.5a5.5 5.5 0 0 1 0 11H10" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>Undo</h4><p>Take back the last turn.</p></li>
+      <li><h4><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l9 9-9 9-9-9z" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M12 9l3 3-3 3-3-3z" fill="currentColor"/></svg>Three hints</h4><p>Per floor. A hint turns one tile right and pins it, and lowers the best you can earn by one star.</p></li>
+      <li><h4><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.34-5.66M20 4v5h-5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>Restart</h4><p>Begin the floor again from the start.</p></li>
+      <li><h4><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M4 12h16M12 4v16" stroke="currentColor" stroke-width="1.2"/></svg>Saved</h4><p>Unfinished floors save themselves.</p></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===================================================== PLATE III -->
+<section class="sec paper" id="rooms" aria-labelledby="h-rooms">
+  <div class="wrap runhead"><span>Tile Bloom</span><span class="mid hide-sm"></span><span>Plate III · The seven rooms</span></div>
+  <header class="sec-head">
+    <p class="plate-no">Plate III</p>
+    <h2 id="h-rooms">Seven rooms, porch to rooftop</h2>
+    <p class="lede">84 levels in seven chapters, the rooms of a Vietnamese tube house. Boards grow from 2×2 to 7×8, and each room has its own colours.</p>
+  </header>
+  <div class="wrap rooms-grid">
+    <div class="orrery rv" id="orrery"></div>
+    <div class="rv">
+      <ol class="index" id="index"></ol>
+      <p class="rooms-note"><b>Chapter I is free</b> and plays in your browser. One in-app purchase opens every chapter after it, for good.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================================================== PLATE IV -->
+<section class="sec night" id="daily" aria-labelledby="h-daily">
+  <div class="wrap runhead"><span>Tile Bloom</span><span class="mid hide-sm"></span><span>Plate IV · The daily tile</span></div>
+  <div class="wrap daily-grid" style="margin-top:80px">
+    <div class="daily-head rv">
+      <p class="plate-no">Plate IV</p>
+      <h2 id="h-daily">The daily tile</h2>
+      <p class="lede">One new floor every day, the same for everyone. The board grows through the week.</p>
+    </div>
+    <figure class="chart rv" style="margin:0">
+      <div class="refs-top" id="refs-top" aria-hidden="true"></div>
+      <div class="refs-left" id="refs-left" aria-hidden="true"></div>
+      <div class="frame"><div class="frame-in"><div class="dboard" id="dboard" aria-hidden="true"></div></div></div>
+      <figcaption class="chart-cap" id="dcap"><b>Today’s floor</b>The same for everyone.</figcaption>
+    </figure>
+    <div class="daily-rest rv">
+      <table class="eph" id="eph">
+        <caption>Ephemeris · board size by weekday</caption>
+        <tbody></tbody>
+      </table>
+      <ul class="facts" id="facts"></ul>
+      <div class="daily-cta">
+        <a class="btn btn-cream" href="play/">Play today’s tile
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h16M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.7"/></svg></a>
+        <span>Free, in your browser.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================================================== PLATE V -->
+<section class="sec cobalt" id="calm" aria-labelledby="h-calm">
+  <div class="wrap runhead"><span>Tile Bloom</span><span class="mid hide-sm"></span><span>Plate V · Calm by design</span></div>
+  <header class="sec-head">
+    <p class="plate-no">Plate V</p>
+    <h2 id="h-calm">Calm by design</h2>
+    <p class="lede">A puzzle that respects you. Nothing to sign up for, nothing watching, nothing to interrupt a floor.</p>
+  </header>
+  <div class="wrap">
+    <ul class="legend rv" id="legend"></ul>
+    <div class="price-head rv"><h3>The price, plainly</h3><p>On the web, chapters after the first say “in the app”.</p></div>
+    <div class="price rv">
+      <div><span class="cap">To start</span><b>Free</b><p>Chapter I and the daily tile.</p></div>
+      <div><span class="cap">To go further</span><b>One purchase</b><p>One in-app purchase opens every chapter after the first, for good.</p></div>
+      <div><span class="cap">Never</span><b>No subscription</b><p>Nothing to renew. What you open stays open.</p></div>
+    </div>
+    <div class="comfort rv">
+      <div><span class="cap">Comfort</span><p>Light and dark themes, soft haptics on phones, an assist mode, and keyboard control on desktop.</p></div>
+      <div><span class="cap">Platforms</span><p>iPhone and iPad (iOS 15+), Android, and web browsers.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================================================== PLATE VI -->
+<section class="sec paper" id="screens" aria-labelledby="h-screens">
+  <div class="wrap runhead"><span>Tile Bloom</span><span class="mid hide-sm"></span><span>Plate VI · From the app</span></div>
+  <header class="sec-head">
+    <p class="plate-no">Plate VI</p>
+    <h2 id="h-screens">From the app</h2>
+    <p class="lede">Real screens from Tile Bloom on a phone.</p>
+  </header>
+  <div class="wrap">
+    <ul class="shots">
+      <li class="rv"><figure class="shot"><div class="mount"><img src="assets/img/ui-game-bloomed-dark.webp" width="860" height="1864" loading="lazy" alt="Level 16 in the dark theme: a five by five floor almost fully bloomed, 29 of 32 blooms, 13 moves against a par of 39."></div>
+        <figcaption><span class="cap">Fig. A · Level 16</span>The Living Room, 5×5, nearly done, in the dark theme.</figcaption></figure></li>
+      <li class="rv"><figure class="shot"><div class="mount"><img src="assets/img/ui-daily-light.webp" width="860" height="1864" loading="lazy" alt="Daily tile number 12, Monday October 12: a four by four floor at the start, 0 moves, par 30."></div>
+        <figcaption><span class="cap">Fig. B · Daily tile</span>Daily tile #12, a Monday 4×4.</figcaption></figure></li>
+      <li class="rv"><figure class="shot"><div class="mount"><img src="assets/img/ui-levels-porch.webp" width="860" height="1864" loading="lazy" alt="The Porch chapter page: levels 1 to 12 laid out as a tiled floor, 34 of 36 stars."></div>
+        <figcaption><span class="cap">Fig. C · The Porch</span>Chapter I, Levels 1–12, laid out as a floor.</figcaption></figure></li>
+      <li class="rv"><figure class="shot"><div class="mount"><img src="assets/img/ui-win-light.webp" width="860" height="1864" loading="lazy" alt="Floor complete for Level 16: three stars, 14 moves against a par of 39, no hints."></div>
+        <figcaption><span class="cap">Fig. D · Floor complete</span>Stars, moves, time and hints for the floor.</figcaption></figure></li>
+    </ul>
+  </div>
+</section>
+</main>
+
+<footer class="night">
+  <div class="close">
+    <svg class="close-orbits" viewBox="0 0 1440 600" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <ellipse cx="720" cy="300" rx="660" ry="190" transform="rotate(-8 720 300)"/>
+      <ellipse cx="720" cy="300" rx="520" ry="250" transform="rotate(14 720 300)" stroke-dasharray="2 8"/>
+      <circle cx="152" cy="352" r="7" fill="#24406B" stroke="#F2ECE2" stroke-opacity=".5"/>
+      <circle cx="1214" cy="190" r="4" fill="#F2C25E"/>
+    </svg>
+    <p class="plate-no">Colophon</p>
+    <h2><span class="nb">Turn the tiles ·</span> <span class="nb">Let them bloom</span></h2>
+    <p class="lede">Chapter I and the daily tile are waiting in your browser.</p>
+    <div class="close-actions">
+      <a class="btn btn-cream" href="play/">Play in your browser
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h16M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.7"/></svg></a>
+      <div class="stores">
+        <span class="badge"><span class="orb" aria-hidden="true"></span><span><small>Coming soon</small><b>App Store</b></span></span>
+        <span class="badge"><span class="orb" aria-hidden="true"></span><span><small>Coming soon</small><b>Google Play</b></span></span>
+      </div>
+    </div>
+  </div>
+  <div class="wrap colophon">
+    <div class="colo-brand">
+      <img src="assets/img/logo-icon.svg" alt="" width="56" height="56">
+      <div><b>Tile Bloom</b><p>A calm rotation puzzle made from Vietnamese <span class="vi"><span class="sr">gạch bông</span><span aria-hidden="true">g<span class="db">a</span>ch bông</span></span> cement tiles. The app works offline. No ads, no account, no analytics or tracking.</p></div>
+    </div>
+    <div>
+      <span class="cap">Help</span>
+      <ul class="links">
+        <li><a href="privacy.html">Privacy</a></li>
+        <li><a href="support.html">Support</a></li>
+        <li><a href="mailto:lamnv260398@gmail.com">lamnv260398@gmail.com</a></li>
+      </ul>
+    </div>
+    <div class="lic">
+      <span class="cap">Type</span>
+      <p>Titles are set in Marcellus, text in Jost. Both are used under the SIL Open Font License (<a href="assets/fonts/OFL-Marcellus.txt">Marcellus</a>, <a href="assets/fonts/OFL-Jost.txt">Jost</a>).</p>
+    </div>
+  </div>
+  <div class="neat inv" aria-hidden="true"></div>
+</footer>
+<script src="assets/js/tile-bloom-engine.js"></script>
+<script src="assets/js/home.js"></script>
+</body>
+</html>
