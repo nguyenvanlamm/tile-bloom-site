@@ -28,10 +28,6 @@ a{color:inherit}
 .night :focus-visible,.cobalt :focus-visible{outline-color:var(--gold)}
 .wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--gutter)}
 .sr{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
-/* gạch bông: neither Jost nor Marcellus carries ạ, so the dot below is set by hand; the real word is in .sr */
-.vi{white-space:nowrap}
-.db{position:relative}
-.db::after{content:"";position:absolute;left:50%;bottom:.1em;width:.12em;height:.12em;border-radius:50%;background:currentColor;transform:translateX(-50%)}
 .paper{background:var(--paper) var(--grain)}
 .night{background:var(--night);color:var(--on-night)}
 .cobalt{background:var(--cobalt);color:var(--paper)}

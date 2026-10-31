@@ -1,4 +1,4 @@
-/* Tile Bloom — the game's real rules, ported from lib/features/game/domain/*.dart for this site.
+/* Quarterbloom — the game's real rules, ported from lib/features/game/domain/*.dart for this site.
  *
  * Same PRNG (mulberry32), generator, rules, par, hint and scoring as the Flutter app, so
  * TB.levels.spec(16) and TB.daily.spec('2026-10-12') give the very boards the app shows.

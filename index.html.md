@@ -1,10 +1,10 @@
-# Tile Bloom
+# Quarterbloom
 
 **Turn the tiles · Let them bloom**
 
-A calm rotation puzzle made from Vietnamese *gạch bông* cement tiles. One tap turns a tile; four matching corners make a flower bloom.
+A calm rotation puzzle made from Vietnamese cement tiles. One tap turns a tile; four matching corners make a flower bloom.
 
-- [Play in your browser](https://nguyenvanlamm.github.io/tile-bloom-site/play/): Chapter I and the daily tile, free.
+- [Play in your browser](https://nguyenvanlamm.github.io/quarterbloom-site/play/): Chapter I and the daily tile, free.
 - App Store: coming soon. Google Play: coming soon.
 - Platforms: iPhone and iPad (iOS 15+), Android, and web browsers.
 

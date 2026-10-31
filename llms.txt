@@ -1,6 +1,6 @@
-# Tile Bloom
+# Quarterbloom
 
-> Tile Bloom is a calm rotation puzzle made from Vietnamese gạch bông cement tiles, for iPhone and iPad (iOS 15 or later), Android and web browsers. Tap a tile to turn it; when all the corners that meet at a point match, a flower blooms there. Make every meeting point bloom to finish the floor. The App Store and Google Play versions are coming soon; Chapter I and the daily tile can be played now in the browser.
+> Quarterbloom is a calm rotation puzzle made from Vietnamese cement tiles, for iPhone and iPad (iOS 15 or later), Android and web browsers. Tap a tile to turn it; when all the corners that meet at a point match, a flower blooms there. Make every meeting point bloom to finish the floor. The App Store and Google Play versions are coming soon; Chapter I and the daily tile can be played now in the browser.
 
 - 84 levels in seven chapters, the rooms of a Vietnamese tube house: The Porch, The Living Room, The Courtyard, The Kitchen, The Stairwell, The Balcony and The Rooftop. Boards grow from 2×2 to 7×8.
 - A daily tile: one new floor every day, the same for everyone, with a day streak and a plain-text result to share.
@@ -10,11 +10,11 @@
 
 ## Pages
 
-- [Home](https://nguyenvanlamm.github.io/tile-bloom-site/index.html.md): what the game is, how it plays, the daily tile, the seven rooms and the price
-- [Support](https://nguyenvanlamm.github.io/tile-bloom-site/support.html.md): contact, how to play, purchases, refunds and progress
-- [Privacy Policy](https://nguyenvanlamm.github.io/tile-bloom-site/privacy.html.md): what the game stores on the device and what it never collects
+- [Home](https://nguyenvanlamm.github.io/quarterbloom-site/index.html.md): what the game is, how it plays, the daily tile, the seven rooms and the price
+- [Support](https://nguyenvanlamm.github.io/quarterbloom-site/support.html.md): contact, how to play, purchases, refunds and progress
+- [Privacy Policy](https://nguyenvanlamm.github.io/quarterbloom-site/privacy.html.md): what the game stores on the device and what it never collects
 
 ## Optional
 
-- [Play in your browser](https://nguyenvanlamm.github.io/tile-bloom-site/play/): Chapter I and the daily tile
-- [Website](https://nguyenvanlamm.github.io/tile-bloom-site/): the HTML landing page
+- [Play in your browser](https://nguyenvanlamm.github.io/quarterbloom-site/play/): Chapter I and the daily tile
+- [Website](https://nguyenvanlamm.github.io/quarterbloom-site/): the HTML landing page

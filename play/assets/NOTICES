@@ -1807,12 +1807,14 @@ See the License for the specific language governing permissions and
 limitations under the License.
 --------------------------------------------------------------------------------
 cross_file
+cupertino_ui
 go_router
 in_app_purchase
 in_app_purchase_android
 in_app_purchase_platform_interface
 in_app_purchase_storekit
 listen
+material_ui
 path_provider
 path_provider_android
 path_provider_foundation

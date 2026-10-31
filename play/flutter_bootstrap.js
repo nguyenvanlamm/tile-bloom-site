@@ -38,14 +38,58 @@ addEventListener("message", eventListener);
 if (!window._flutter) {
   window._flutter = {};
 }
-_flutter.buildConfig = {"engineRevision":"06a2e2a110089dff50fe635cffd2a61e1b24fbcd","wasmHashes":{"experimental_webparagraph/canvaskit.wasm":"6b916e684369558b9a4fdd774fedf2717d7481cf0b7dffb28e084129512bbd3f","wimp.wasm":"e924eaafd801d41e017d178f3fd5cf8a417f641fe35c9ed34a4e1d7582283e0c","canvaskit.wasm":"fbed517a43e82452404446683f00f2e876d835aed84410695759e67b6bb01cd3","webparagraph/canvaskit.wasm":"0ce1b05082efdc8529550e8a01f6ff0593972d55525035010e26f5600aa9f254","skwasm_heavy.wasm":"565f5cc1cca6ab120f11934b105f01fec4b58b480c82e0889dca93af8e6f8635","chromium/canvaskit.wasm":"ae8ff1d858140f7b1300ced3fa89fb8c9dce0a400a0f4f1e11f6dcfb3315fdcf","skwasm.wasm":"e540fd5e8303b7b68ec2718cb49e9c421f8ade3075b15e02a7059a62654df9a1"},"builds":[{"compileTarget":"dart2js","renderer":"canvaskit","mainJsPath":"main.dart.js"}],"useLocalCanvasKit":true};
+_flutter.buildConfig = {"engineRevision":"deb287481e3ce9468f3434937ced4240a70539ca","wasmHashes":{"wimp.wasm":"e924eaafd801d41e017d178f3fd5cf8a417f641fe35c9ed34a4e1d7582283e0c","canvaskit.wasm":"fbed517a43e82452404446683f00f2e876d835aed84410695759e67b6bb01cd3","webparagraph/canvaskit.wasm":"0ce1b05082efdc8529550e8a01f6ff0593972d55525035010e26f5600aa9f254","skwasm_heavy.wasm":"565f5cc1cca6ab120f11934b105f01fec4b58b480c82e0889dca93af8e6f8635","chromium/canvaskit.wasm":"ae8ff1d858140f7b1300ced3fa89fb8c9dce0a400a0f4f1e11f6dcfb3315fdcf","skwasm.wasm":"e540fd5e8303b7b68ec2718cb49e9c421f8ade3075b15e02a7059a62654df9a1"},"builds":[{"compileTarget":"dart2js","renderer":"canvaskit","mainJsPath":"main.dart.js"},{}],"useLocalCanvasKit":true};
 
 
 // Everything is served from this site, nothing from Google's servers:
 // CanvasKit from canvaskit/ (build with --no-web-resources-cdn) and the
 // engine's default font, Roboto, from fonts/ (SIL OFL, see fonts/roboto/OFL.txt).
-_flutter.loader.load({
-  config: {
-    fontFallbackBaseUrl: 'fonts/',
-  },
-});
+//
+// The splash in index.html stays until Flutter paints its first frame. If the
+// app fails to load (a script cannot be fetched, WebAssembly is switched off,
+// the engine cannot start) or nothing is painted within 20 seconds, the splash
+// turns into a short message with a Reload button instead of pulsing forever.
+// This file is served from this site, so the Content-Security-Policy in
+// index.html runs it without a hash; the button gets its handler here because
+// the policy blocks inline event handlers.
+(() => {
+  const loadTimeoutMs = 20000;
+
+  const showLoadError = (error) => {
+    clearTimeout(timer);
+    if (error) console.error('Quarterbloom did not load:', error);
+    const splash = document.getElementById('splash');
+    if (!splash || splash.classList.contains('failed')) return;
+    const message = document.createElement('p');
+    message.setAttribute('role', 'alert');
+    message.textContent = "Quarterbloom didn't load. Check your connection, then reload the page.";
+    const reload = document.createElement('button');
+    reload.type = 'button';
+    reload.textContent = 'Reload';
+    reload.addEventListener('click', () => location.reload());
+    splash.removeAttribute('role');
+    splash.removeAttribute('aria-label');
+    splash.querySelector('svg')?.setAttribute('aria-hidden', 'true');
+    splash.classList.add('failed');
+    splash.append(message, reload);
+  };
+
+  // Counted from the start of the page load, not from when this script runs.
+  const timer = setTimeout(showLoadError, Math.max(0, loadTimeoutMs - performance.now()));
+  window.addEventListener('flutter-first-frame', () => clearTimeout(timer));
+  // A <script> that cannot be fetched (main.dart.js) fires "error" on itself
+  // without bubbling; the capture phase on window still sees it.
+  window.addEventListener('error', (event) => {
+    if (event.target instanceof HTMLScriptElement) showLoadError(`${event.target.src} could not be fetched`);
+  }, true);
+
+  // The loader only rejects for its own failures, such as no build this
+  // browser can run; engine start-up errors surface in onEntrypointLoaded.
+  const config = { fontFallbackBaseUrl: 'fonts/' };
+  _flutter.loader.load({
+    config,
+    onEntrypointLoaded: (engineInitializer) => engineInitializer.initializeEngine(config)
+      .then((appRunner) => appRunner.runApp())
+      .catch(showLoadError),
+  }).catch(showLoadError);
+})();

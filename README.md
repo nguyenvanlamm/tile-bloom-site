@@ -1,17 +1,17 @@
-# Tile Bloom — landing page
+# Quarterbloom — landing page
 
-Static site for Tile Bloom, a calm rotation puzzle made from Vietnamese cement tiles:
+Static site for Quarterbloom, a calm rotation puzzle made from Vietnamese cement tiles:
 `index.html` (landing), `privacy.html` (Privacy Policy URL), `support.html` (Support URL)
 and `play/`, the web build of the game (Chapter I and the daily tile).
 No build step and no third-party requests.
 
-Live: https://nguyenvanlamm.github.io/tile-bloom-site/
+Live: https://nguyenvanlamm.github.io/quarterbloom-site/
 
-The web build in `play/` is built for the `/tile-bloom-site/play/` path, so preview from the
+The web build in `play/` is built for the `/quarterbloom-site/play/` path, so preview from the
 parent folder:
 
 ```bash
-cd .. && python3 -m http.server 8090   # http://localhost:8090/tile-bloom-site/
+cd .. && python3 -m http.server 8090   # http://localhost:8090/quarterbloom-site/
 ```
 
 Published by GitHub Pages from the root of `main`.
@@ -20,7 +20,7 @@ Published by GitHub Pages from the root of `main`.
 
 - `assets/css/site.css`: every page's styles.
 - `assets/js/home.js`: the landing page's playable floor (Levels 1–8), figures, rooms and today's daily floor.
-- `assets/js/tile-bloom-engine.js`: the game's rules ported to JavaScript (Levels 1–36 and the daily tile give the same boards as the app).
+- `assets/js/quarterbloom-engine.js`: the game's rules ported to JavaScript (Levels 1–36 and the daily tile give the same boards as the app).
 - `assets/img/`: logo, icons, four WebP captures of the app, and the share card `share-card.jpg` (1200×630, the `og:image` of every page).
 - Fonts: Marcellus and Jost (SIL Open Font License, see `assets/fonts/OFL-*.txt`).
 
@@ -30,10 +30,10 @@ From the game repository:
 
 ```bash
 flutter build web --release --no-source-maps --no-web-resources-cdn \
-  --base-href /tile-bloom-site/play/ \
-  --dart-define=SHARE_URL=https://nguyenvanlamm.github.io/tile-bloom-site/
-rm -rf ../tile-bloom-site/play
-rsync -a --exclude '*.map' --exclude '*.symbols' --exclude .last_build_id build/web/ ../tile-bloom-site/play/
+  --base-href /quarterbloom-site/play/ \
+  --dart-define=SHARE_URL=https://nguyenvanlamm.github.io/quarterbloom-site/
+rm -rf ../quarterbloom-site/play
+rsync -a --exclude '*.map' --exclude '*.symbols' --exclude .last_build_id build/web/ ../quarterbloom-site/play/
 ```
 
 The game's `web/flutter_bootstrap.js` loads CanvasKit and the engine's default font (Roboto,

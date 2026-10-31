@@ -1,4 +1,4 @@
-# Support: Tile Bloom
+# Support: Quarterbloom
 
 Found a bug, have feedback or need a hand? Email [lamnv260398@gmail.com](mailto:lamnv260398@gmail.com?subject=Tile%20Bloom). Please say which device you play on and, if it is about a level, its number.
 
@@ -20,6 +20,6 @@ Progress is saved on the device only. It is not synced between devices, and it i
 
 ## Playing in the browser
 
-The web version at [nguyenvanlamm.github.io/tile-bloom-site/play/](https://nguyenvanlamm.github.io/tile-bloom-site/play/) holds Chapter I and the daily tile and needs a connection to load. The chapters after the first, and offline play, are in the iPhone, iPad and Android app.
+The web version at [nguyenvanlamm.github.io/quarterbloom-site/play/](https://nguyenvanlamm.github.io/quarterbloom-site/play/) holds Chapter I and the daily tile and needs a connection to load. The chapters after the first, and offline play, are in the iPhone, iPad and Android app.
 
 [Privacy Policy](privacy.html.md)

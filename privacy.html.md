@@ -1,8 +1,8 @@
-# Privacy Policy: Tile Bloom
+# Privacy Policy: Quarterbloom
 
 Last updated 12 October 2026.
 
-Tile Bloom is a puzzle game made to be played offline. It does not ask who you are, and it does not collect, send or sell any data about you.
+Quarterbloom is a puzzle game made to be played offline. It does not ask who you are, and it does not collect, send or sell any data about you.
 
 ## What stays on your device
 
